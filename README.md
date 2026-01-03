@@ -1,50 +1,89 @@
-# Welcome to your Expo app 👋
+# Student Expense Tracker - Appathon 2026 Submission
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A mobile application for university students to track daily expenses, manage monthly budgets, and analyze spending patterns. Built with React Native (Expo) and TypeScript, utilizing an offline-first architecture with SQLite.
 
-## Get started
+## Functional Features
 
-1. Install dependencies
+### Dashboard
+- **Budget Tracking**: Real-time progress bar with color-coded status (Safe, Warning, Over Budget).
+- **Recent Transactions**: Scrollable transaction history with deletion support.
+- **Quick Add**: Floating Action Button for immediate expense entry.
 
+### Expense Management
+- **Expense Entry**: Input fields for title, numeric amount, category, and date.
+- **Category System**: Categorization including Food, Transport, Education, Entertainment, and Other.
+- **Date selection**: Native date selector for accurate record keeping.
+- **Validation**: Strict validation to prevent zero or negative amounts and empty titles.
+
+### Analytics and Summary
+- **Monthly Summary**: dedicated tab calculating total expenditures for the current month.
+- **Category Breakdown**: Percentage-based visualization of spending across different categories.
+
+### Budget Settings
+- **Monthly Limit**: Interface to set and update a persistent monthly spending cap.
+- **Real-time Updates**: Immediate recalculation of remaining balance upon data changes.
+
+### UI/UX Implementation
+- **Custom Theme**: Dedicated design system built with Indigo and Emerald color palettes.
+- **System Synchronization**: Automatic support for system Light and Dark modes.
+- **Haptic Feedback**: Integrated haptics for navigation interactions.
+- **Safe Area Management**: Proper layout handling for modern notched displays.
+
+## Technical Implementation
+
+| Category | Technology | Purpose |
+|----------|------------|---------|
+| Core | React Native 0.81 | UI Foundation |
+| Framework | Expo SDK 52 | Tooling and Hardware API |
+| Language | TypeScript | Type Safety |
+| Navigation | Expo Router | File-based Routing |
+| Database | Expo SQLite | Local Persistence |
+| Styling | StyleSheet API | Native Styling |
+| Icons | Material Icons | Icon System |
+
+## Project Structure
+
+- `app/`: Contains all application routes and screens.
+- `app/(tabs)/`: Implementation of the primary tab navigation (Home, Summary).
+- `app/models/`: Data access layer for expenses and budget settings.
+- `app/db/`: Database initialization and migration scripts.
+- `components/`: Atomic UI components and themed elements.
+- `constants/`: Global style constants and theme definitions.
+- `hooks/`: Custom React hooks for platform-specific logic.
+
+## Data Persistence
+
+The application employs an offline-first strategy using Expo SQLite.
+- **Database**: `expenses.db`
+- **Logic**: All CRUD operations are performed asynchronously to maintain UI responsiveness.
+- **Persistence**: Data remains available across application restarts and without internet connectivity.
+
+## Setup Instructions
+
+1. **Install Dependencies**:
    ```bash
    npm install
    ```
 
-2. Start the app
-
+2. **Start Dev Server**:
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. **Deployment**:
+   - Use Expo Go on physical devices (Android/iOS).
+   - Use `a` for Android emulator or `i` for iOS simulator.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Technical Checklist Status
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- [x] Add Expense (Title, Amount, Category, Date)
+- [x] Input Validation
+- [x] Mandatory Categories Support
+- [x] Date-ordered Expense List
+- [x] Edit/Delete Functionality
+- [x] Monthly Budget Settings
+- [x] Real-time Balance Calculation
+- [x] Overspending Visual Indicators
+- [x] Monthly/Category Summaries
+- [x] Local SQLite Database Persistence
+- [x] Full Offline Functionality
